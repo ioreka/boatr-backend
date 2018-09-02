@@ -36,8 +36,18 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def set_markers
+      # print params["markers"][0]["lat"]
+      # print current_user.id
+      # print current_user.markers.count
       if current_user && params[:id].to_i == current_user.id
-        render json: current_user.markers
+        params["markers"].each do |marker|
+          # print "wow"
+          # print marker["lat"]
+          m = Marker.create(lat: marker["lat"], long: marker["lng"])
+          m.user = current_user
+        end
+        my_markers = current_user.markers
+        render json: my_markers
       else
         render json: { error: 'Not authorised!' }
       end
@@ -50,7 +60,7 @@ class Api::V1::UsersController < ApplicationController
       UserEvent.destroy(userEventToDestroy["id"])
 
       if current_user && params[:id].to_i == current_user.id
-        render json: current_user.events
+        render json: current_user.markers
       else
         render json: { error: 'Not authorized!' }
       end

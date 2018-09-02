@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_142843) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "pins", force: :cascade do |t|
+  create_table "markers", force: :cascade do |t|
     t.integer "user_id"
     t.float "lat"
     t.float "long"
