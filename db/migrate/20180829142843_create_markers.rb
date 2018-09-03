@@ -3,7 +3,7 @@ class CreateMarkers < ActiveRecord::Migration[5.2]
     create_table :markers do |t|
       t.integer :user_id
       t.float :lat
-      t.float :long
+      t.float :lng
       t.string :comment
 
       t.timestamps

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_142843) do
   create_table "markers", force: :cascade do |t|
     t.integer "user_id"
     t.float "lat"
-    t.float "long"
+    t.float "lng"
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
