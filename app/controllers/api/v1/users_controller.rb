@@ -35,10 +35,8 @@ class Api::V1::UsersController < ApplicationController
       end
     end
 
-    def set_markers
-
+    def add_marker
       if current_user && params[:id].to_i == current_user.id
-        print params
           m = Marker.find_or_create_by(lat: params["marker"]["lat"], lng: params["marker"]["lng"])
           m.user = current_user
           m.save
@@ -46,6 +44,15 @@ class Api::V1::UsersController < ApplicationController
       else
         render json: { error: 'Not authorised!' }
       end
+    end
+
+    def update_marker
+      print params
+      # marker = Marker.find(params[:id])
+      # marker.update(params[:marker])
+      # # marker.update(lat: params["marker"]["lat"], lng: params["marker"]["lng"])
+      # marker.save
+      # render json: marker
     end
 
     def delete_marker

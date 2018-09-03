@@ -6,7 +6,8 @@ Rails.application.routes.draw do
       post "/login", to: 'users#login'
       get "/current_user", to: 'users#get_current_user'
       get "/users/:id/markers", to: 'users#get_markers'
-      post "/users/:id/markers", to: 'users#set_markers'
+      post "/users/:id/markers", to: 'users#add_marker'
+      patch "users/:id/markers", to: 'users#update_marker'
       delete "/users/:id/markers", to: 'users#delete_marker'
     end
   end
