@@ -47,12 +47,10 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update_marker
-      print params
-      # marker = Marker.find(params[:id])
-      # marker.update(params[:marker])
-      # # marker.update(lat: params["marker"]["lat"], lng: params["marker"]["lng"])
-      # marker.save
-      # render json: marker
+      marker = Marker.find(params[:marker_id])
+      marker.update(lat: params["lat"], lng: params["lng"])
+      marker.save
+      render json: marker
     end
 
     def delete_marker
