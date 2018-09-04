@@ -54,16 +54,12 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def delete_marker
-      event = params[:ev]
-      userEventToDestroy = UserEvent.find_by(event_id: event["id"], user_id: current_user["id"])
-      print userEventToDestroy
-      UserEvent.destroy(userEventToDestroy["id"])
-
-      if current_user && params[:id].to_i == current_user.id
-        render json: current_user.markers
-      else
-        render json: { error: 'Not authorized!' }
-      end
+      markerToDestroy = Marker.find(params[:marker_id])
+      print markerToDestroy
+      markerToDestroy.destroy
+      myMarkers = current_user.markers
+      print myMarkers
+      render json: myMarkers
     end
 
 end
