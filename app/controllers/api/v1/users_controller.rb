@@ -62,4 +62,14 @@ class Api::V1::UsersController < ApplicationController
       render json: myMarkers
     end
 
+    def add_comment
+      marker = Marker.find(params[:marker_id])
+      print marker
+      print params
+      marker.update(comment: params["comment"])
+      marker.save
+      render json: marker
+    end
+
+
 end

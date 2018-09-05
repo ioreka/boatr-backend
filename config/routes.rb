@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post "/users/:id/markers", to: 'users#add_marker'
       patch "users/:id/markers/:marker_id", to: 'users#update_marker'
       delete "/users/:id/markers/:marker_id", to: 'users#delete_marker'
+      post "/users/:id/markers/:marker_id/comments", to: 'users#add_comment'
     end
   end
 end
