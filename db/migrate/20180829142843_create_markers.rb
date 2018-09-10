@@ -5,6 +5,7 @@ class CreateMarkers < ActiveRecord::Migration[5.2]
       t.float :lat
       t.float :lng
       t.string :comment
+      t.string :photoURL
 
       t.timestamps
     end

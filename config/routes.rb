@@ -5,11 +5,12 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :read, :update]
       post "/login", to: 'users#login'
       get "/current_user", to: 'users#get_current_user'
-      get "/users/:id/markers", to: 'users#get_markers'
-      post "/users/:id/markers", to: 'users#add_marker'
-      patch "users/:id/markers/:marker_id", to: 'users#update_marker'
-      delete "/users/:id/markers/:marker_id", to: 'users#delete_marker'
-      post "/users/:id/markers/:marker_id/comments", to: 'users#add_comment'
+      get "/users/:id/markers", to: 'markers#get_markers'
+      post "/users/:id/markers", to: 'markers#add_marker'
+      patch "users/:id/markers/:marker_id", to: 'markers#update_marker'
+      get "users/:id/markers/:marker_id/comment", to: 'markers#get_comment'
+      get "users/:id/markers/:marker_id/photo", to: 'markers#get_photo'
+      delete "/users/:id/markers/:marker_id", to: 'markers#delete_marker'
     end
   end
 end

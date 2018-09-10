@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_142843) do
     t.float "lat"
     t.float "lng"
     t.string "comment"
+    t.string "photoURL"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
