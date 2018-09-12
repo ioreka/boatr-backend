@@ -21,7 +21,6 @@ class Api::V1::MarkersController < ApplicationController
   end
 
   def update_marker
-    print params
     marker = Marker.find(params[:marker_id])
     marker.update(marker_params)
     render json: marker
@@ -29,10 +28,8 @@ class Api::V1::MarkersController < ApplicationController
 
   def delete_marker
     markerToDestroy = Marker.find(params[:marker_id])
-    print markerToDestroy
     markerToDestroy.destroy
     myMarkers = current_user.markers
-    print myMarkers
     render json: myMarkers
   end
 
