@@ -32,7 +32,4 @@ class ApplicationController < ActionController::API
     "turn the inverter off pls"
   end
 
-
-
-
 end
